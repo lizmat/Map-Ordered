@@ -24,10 +24,10 @@ subtest {
       'does .perl work ok';
 }, 'test basic stuff after initialization';
 
-is-deeply (%m.keys),   @keys,   'are the keys in order';
-is-deeply (%m.values), @values, 'are the values in order';
-is-deeply (%m.pairs),  @pairs,  'are the pairs in order';
-is-deeply (%m.kv),     @kv,     'are the key / values in order';
+is-deeply %m.keys.List,     @keys, 'are the keys in order';
+is-deeply %m.values.List, @values, 'are the values in order';
+is-deeply %m.pairs.List,   @pairs, 'are the pairs in order';
+is-deeply %m.kv.List,         @kv, 'are the key / values in order';
 
 subtest {
     plan +@keys;

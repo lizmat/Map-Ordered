@@ -5,19 +5,28 @@ use Map::Agnostic:ver<0.0.1>:auth<cpan:ELIZABETH>;
 role Map::Ordered:ver<0.0.1>:auth<cpan:ELIZABETH>
   does Map::Agnostic
 {
-    has str @!keys;
-    has %!hash; #  handles <AT-KEY BIND-KEY>;  # not supported yet
+    has %!indices;  # handles <EXISTS-KEY>   # alas, not supported for role yet
+    has Str @!keys;
+    has Mu  @!values;
 
 #--- Mandatory method required by Map::Agnostic --------------------------------
-    method INIT-KEY(\key, \value) {
-        my str $key = key.Str;
-        @!keys.push($key);
-        %!hash.BIND-KEY($key,value);
+    method INIT-KEY(Str() $key, \value) {
+        my int $index = @!values.elems;
+        %!indices.BIND-KEY(  $key, $index);
+        @!keys   .BIND-POS($index, $key);
+        @!values .BIND-POS($index, value<>);
     }
-    method AT-KEY(\key)     { %!hash.AT-KEY(key)     }
-    method EXISTS-KEY(\key) { %!hash.EXISTS-KEY(key) }
+    method AT-KEY(\key) {
+        with %!indices.AT-KEY(key) {
+            @!values.AT-POS($_)
+        }
+        else {
+            Nil
+        }
+    }
+    method EXISTS-KEY(\key) { %!indices.EXISTS-KEY(key) }
 
-    method keys() { @!keys.List }
+    method keys() { @!keys }
 
 #---- Methods needed for consistency -------------------------------------------
     method gist() {
@@ -38,8 +47,10 @@ role Map::Ordered:ver<0.0.1>:auth<cpan:ELIZABETH>
     }
 
 #---- Optional methods for performance -----------------------------------------
-    method values()   { @!keys.map: { %!hash{$_} } }
-    method pairs()    { @!keys.map: { $_ => %!hash{$_} } }
+    method values()   { @!values }
+    method pairs() {
+        @!keys.map: { Pair.new($_, @!values.AT-POS(%!indices.AT-KEY($_))) }
+    }
 }
 
 =begin pod
