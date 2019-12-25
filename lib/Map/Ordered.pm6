@@ -1,8 +1,8 @@
 use v6.c;
 
-use Map::Agnostic:ver<0.0.2>:auth<cpan:ELIZABETH>;
+use Map::Agnostic:ver<0.0.3>:auth<cpan:ELIZABETH>;
 
-role Map::Ordered:ver<0.0.2>:auth<cpan:ELIZABETH>
+role Map::Ordered:ver<0.0.3>:auth<cpan:ELIZABETH>
   does Map::Agnostic
 {
     has %!indices;  # handles <EXISTS-KEY>   # alas, not supported for role yet
