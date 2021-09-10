@@ -1,8 +1,8 @@
 use v6.c;
 
-use Map::Agnostic:ver<0.0.5>:auth<cpan:ELIZABETH>;
+use Map::Agnostic:ver<0.0.6>:auth<zef:lizmat>;
 
-role Map::Ordered:ver<0.0.5>:auth<cpan:ELIZABETH>
+role Map::Ordered:ver<0.0.6>:auth<zef:lizmat>
   does Map::Agnostic
 {
     has %!indices;  # handles <EXISTS-KEY>   # alas, not supported for role yet
@@ -75,7 +75,7 @@ your own custom implementations of maps.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Map-Ordered .
 Comments and Pull Requests are welcome.

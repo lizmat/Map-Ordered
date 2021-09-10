@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/Map-Ordered/workflows/test/badge.svg)](https://github.com/lizmat/Map-Ordered/actions)
+
 NAME
 ====
 
@@ -20,7 +22,7 @@ Since `Map::Ordered` is a role, you can also use it as a base for creating your 
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Map-Ordered . Comments and Pull Requests are welcome.
 

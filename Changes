@@ -2,6 +2,12 @@ Revision history for Map-Ordered
 
 {{$NEXT}}
 
+0.0.6  2021-09-10T11:27:52+02:00
+    - Change file extension to .rakumod
+    - Migrate to zef ecosystem
+    - Update email address
+    - Updated dependency
+
 0.0.5  2021-07-18T15:52:30+02:00
     - Upped dependency on Map::Agnostic to 0.0.3
     - Updated copyright year
