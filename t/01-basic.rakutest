@@ -3,7 +3,7 @@ use Test;
 
 use Map::Ordered;
 
-plan 11;
+plan 12;
 
 my @keys   := <b c d e f g h a>;
 my @values := 666, 314, 628, 271, 6, 7, 8, 42;
@@ -70,5 +70,12 @@ subtest {
 }, 'can we do value slices';
 
 dies-ok { %m = @pairs }, 'cannot re-initialize a Map';
+
+subtest {
+    plan 3;
+    is-deeply +%m, 8,    'does it numerify ok';
+    is-deeply ?%m, True, 'does it boolify ok';
+    is-deeply %m.Int, 8, 'does it intify ok';
+}, 'can we boolify, numericify and intify';
 
 # vim: ft=perl6 expandtab sw=4
