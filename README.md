@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/lizmat/Map-Ordered/workflows/test/badge.svg)](https://github.com/lizmat/Map-Ordered/actions)
+[![Actions Status](https://github.com/lizmat/Map-Ordered/actions/workflows/linux.yml/badge.svg)](https://github.com/lizmat/Map-Ordered/actions) [![Actions Status](https://github.com/lizmat/Map-Ordered/actions/workflows/macos.yml/badge.svg)](https://github.com/lizmat/Map-Ordered/actions) [![Actions Status](https://github.com/lizmat/Map-Ordered/actions/workflows/windows.yml/badge.svg)](https://github.com/lizmat/Map-Ordered/actions)
 
 NAME
 ====
@@ -8,9 +8,11 @@ Map::Ordered - role for ordered Maps
 SYNOPSIS
 ========
 
-    use Map::Ordered;
+```raku
+use Map::Ordered;
 
-    my %m is Map::Ordered = a => 42, b => 666;
+my %m is Map::Ordered = a => 42, b => 666;
+```
 
 DESCRIPTION
 ===========
@@ -31,7 +33,7 @@ If you like this module, or what I’m doing more generally, committing to a [sm
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018, 2019, 2021, 2023 Elizabeth Mattijsen
+Copyright 2018, 2019, 2021, 2023, 2024 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

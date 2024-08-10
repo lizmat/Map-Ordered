@@ -1,6 +1,6 @@
 use v6.c;
 
-use Map::Agnostic:ver<0.0.7>:auth<zef:lizmat>;
+use Map::Agnostic:ver<0.0.10>:auth<zef:lizmat>;
 
 role Map::Ordered does Map::Agnostic {
     has %!indices;  # handles <EXISTS-KEY>   # alas, not supported for role yet
@@ -27,19 +27,19 @@ role Map::Ordered does Map::Agnostic {
     method keys() { @!keys }
 
 #---- Methods needed for consistency -------------------------------------------
-    method gist() {
+    multi method gist(::?ROLE:D:) {
         '{' ~ self.pairs.map( *.gist).join(", ") ~ '}'
     }
 
-    method Str() {
+    multi method Str(::?ROLE:D:) {
         self.pairs.join(" ")
     }
 
-    method perl() {
-        self.perlseen(self.^name, {
+    multi method raku(::?ROLE:D:) {
+        self.rakuseen(self.^name, {
           ~ self.^name
           ~ '.new('
-          ~ self.pairs.map({$_<>.perl}).join(',')
+          ~ self.pairs.map({$_<>.raku}).join(',')
           ~ ')'
         })
     }
@@ -59,9 +59,13 @@ Map::Ordered - role for ordered Maps
 
 =head1 SYNOPSIS
 
-  use Map::Ordered;
+=begin code :lang<raku>
 
-  my %m is Map::Ordered = a => 42, b => 666;
+use Map::Ordered;
+
+my %m is Map::Ordered = a => 42, b => 666;
+
+=end code
 
 =head1 DESCRIPTION
 
@@ -84,10 +88,10 @@ deal to me!
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2021, 2023 Elizabeth Mattijsen
+Copyright 2018, 2019, 2021, 2023, 2024 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: ft=raku expandtab sw=4

@@ -2,11 +2,17 @@ Revision history for Map-Ordered
 
 {{$NEXT}}
 
+0.0.8  2024-08-10T13:33:51+02:00
+    - Up dependency on Map::Agnostic to fix issue with calling
+      .gist / .Str / .raku on type objects
+    - Modernize rakudoc
+    - Add CI badge for each OS
+    - Update copyright year
+
 0.0.7  2023-12-21T11:09:26+01:00
     - Up dependency on Map::Agnostic
     - Use new .rakutest extension
     - Add sponsor link
-    - Update copyright year
 
 0.0.6  2021-09-10T11:27:52+02:00
     - Change file extension to .rakumod

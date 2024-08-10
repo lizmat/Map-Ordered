@@ -3,7 +3,7 @@ use Test;
 
 use Map::Ordered;
 
-plan 12;
+plan 18;
 
 my @keys   := <b c d e f g h a>;
 my @values := 666, 314, 628, 271, 6, 7, 8, 42;
@@ -19,9 +19,9 @@ subtest {
     is %m.Str,
       'b	666 c	314 d	628 e	271 f	6 g	7 h	8 a	42',
       'does .Str work ok';
-    is %m.perl,
+    is %m.raku,
       'Map::Ordered.new(:b(666),:c(314),:d(628),:e(271),:f(6),:g(7),:h(8),:a(42))',
-      'does .perl work ok';
+      'does .raku work ok';
 }, 'test basic stuff after initialization';
 
 is-deeply %m.keys.List,     @keys, 'are the keys in order';
@@ -78,4 +78,14 @@ subtest {
     is-deeply %m.Int, 8, 'does it intify ok';
 }, 'can we boolify, numericify and intify';
 
-# vim: ft=perl6 expandtab sw=4
+is-deeply Map::Ordered.raku, 'Map::Ordered', 'does .raku work on type object';
+quietly is-deeply Map::Ordered.Str, '',       'does .Str  work on type object';
+is-deeply Map::Ordered.gist, '(Ordered)',     'does .gist work on type object';
+
+class A does Map::Ordered { }
+
+is-deeply A.raku,       'A', 'does .raku work on class type object';
+quietly is-deeply A.Str, '', 'does .Str  work on class type object';
+is-deeply A.gist,     '(A)', 'does .gist work on class type object';
+
+# vim: ft=raku expandtab sw=4
