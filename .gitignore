@@ -1,11 +1,4 @@
-/blib/
-/src/*.o
-/src/Makefile
-/.panda-work
-/resources/*.so
-/resources/*.dylib
 .precomp/
 /releases/
 /Map-Ordered-*
-/lib/Hash/Agnostic.pm6
-/lib/Map/Agnostic.pm6
+*.rakucov

@@ -6,7 +6,7 @@
   "build-depends": [
   ],
   "depends": [
-    "Map::Agnostic:ver<0.0.10>:auth<zef:lizmat>"
+    "Map::Agnostic:ver<0.0.11+>:auth<zef:lizmat>"
   ],
   "description": "role for ordered Maps",
   "license": "Artistic-2.0",

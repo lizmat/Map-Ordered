@@ -1,6 +1,8 @@
 Revision history for Map-Ordered
 
 {{$NEXT}}
+    - Up dependency on Map::Agnostic
+    - Update copyright year
 
 0.0.8  2024-08-10T13:33:51+02:00
     - Up dependency on Map::Agnostic to fix issue with calling
